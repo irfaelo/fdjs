@@ -100,16 +100,16 @@ var css={};
 css._cr = function(c){return new RegExp("(^|\\s+)"+c+"(\\s+|$)");}
 css.cl  = function(i){if('classList' in DE){return $4(i).classList}else{return css._cr(c).test(css.gc(i))}}
 
-css.gc  = $gc = function(i){return $4(i).className;}
-css.sc  = $sc = function(i,c){$4(i).className = c;}
-css.rc  = $rc = function(i){css.sc(i,'');}
-css.ac  = $ac = function(i,c){if(css.hc(i,c)==false)$4(i).className += (' '+c);}
-css.hc  = $hc = function(i,c) {return css.cl(i).contains(c);}
-css.dc  = $dc = function(i,c){css.sc(i, css.gc(i).replace(css._cr( c ),' '));}
-css.wc  = $wc = function(i,rc,ac){css.dc(i,rc);css.ac(i,ac);}
-css.tg  = function(i,c){if(css.hc(i,c)){css.dc(i,c)}else{css.ac(i,c)}}
-css.tga = function(i,c1,c2){css.tg(i,c1);css.tg(i,c2)}
-css.tgc = function(i,c,ct,cf){if(eval(c)){css.alc(i,ct,cf)}else{css.alc(i,cf,ct)}}
+css.gc  = css.getClass 		= $gc = function(i){return $4(i).className;}
+css.sc  = css.setClass 		= $sc = function(i,c){$4(i).className = c;}
+css.rc  = css.removeClass	= $rc = function(i){css.sc(i,'');}
+css.ac  = css.appendClass	= $ac = function(i,c){if(css.hc(i,c)==false)$4(i).className += (' '+c);}
+css.hc  = css.hasClass		= $hc = function(i,c) {return css.cl(i).contains(c);}
+css.dc  = css.deleteClass	= $dc = function(i,c){css.sc(i, css.gc(i).replace(css._cr( c ),' '));}
+css.wc  = css.swapClass		= $wc = function(i,rc,ac){css.dc(i,rc);css.ac(i,ac);}
+css.tc  = css.toggleClass	= $tc = function(i,c){if(css.hc(i,c)){css.dc(i,c)}else{css.ac(i,c)}}
+css.lc = css.alternateClass	= $lc = function(i,c1,c2){css.tc(i,c1);css.tc(i,c2)}
+
 css.gs = function(i) {return $4(i).getAttribute('style')}
 
 
